@@ -3,9 +3,10 @@ import GameSavingLoader from './GameSavingLoader.js';
 
 console.log('Работает');
 
-GameSavingLoader.load().then(saving => { 
-  console.log(saving);  
-})  
-.catch(error => {  
-  console.log(error);  
-}); 
+(async () => {
+  try {
+    console.log(await GameSavingLoader.load()); 
+  } catch (error) {
+    console.error(error);
+  }
+})();
